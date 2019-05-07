@@ -45,7 +45,7 @@ export class EditapplicantComponent implements OnInit {
     this.service.updateApplicantDetailsById(this.applicantId,this.applicantEditform.value).subscribe((data)=>{
       this.validateMessage ='updated scuccessfully';
       this.applicantEditform.reset();
-      // this.router.navigate(['adminhome/aphome'])
+      this.router.navigate(['applicanthome'])
     })
   }
 

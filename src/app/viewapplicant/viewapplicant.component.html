@@ -24,7 +24,7 @@
 
 
     </tr>
-    <tr *ngFor="let bike of filteredApplicants | employeeFilter: searchTerm | paginate: { itemsPerPage: 10, currentPage: p }" >
+    <tr *ngFor="let bike of filteredApplicants | employeeFilter: searchTerm | paginate: { itemsPerPage: 5, currentPage: p }" >
       <td>
         {{bike.name}}
       </td>

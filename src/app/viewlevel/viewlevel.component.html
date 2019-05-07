@@ -9,7 +9,7 @@
         <th>Description</th>
         <th>Qualification Points</th>
       </tr>
-      <tr *ngFor="let bike of level | paginate: { itemsPerPage: 10, currentPage: p }">
+      <tr *ngFor="let bike of level | paginate: { itemsPerPage: 5, currentPage: p }">
         <td>
           {{bike.levelNumber}}
         </td>

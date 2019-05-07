@@ -25,10 +25,21 @@
       </td>
       <td>
 
-        <div *ngIf="bike.activity.maxAttempts-bike.count==0; else checkStatus ">
-            <label>Exceeded Maximum Attempts</label>
+        <div *ngIf="bike.activity.maxAttempts-bike.count==0 || bike.status == 'REVIEW_FAILED'  ; else checkStatus ">
+          <div *ngIf="bike.status == 'REVIEW_FAILED' ; else maxattempts">
+            <label>ATTEMPT AGAIN</label>
+          </div>
+          <ng-template #maxattempts>
+              <label>Exceeded Maximum Attempts</label>
+          </ng-template>
+            
         </div>
+        <!-- <div *ngIf="bike.status == 'REVIEW_FAILED'; else checkStatus">
+            <label>ATTEMPT AGAIN</label>
+            </div>  -->
+          
        <ng-template #checkStatus>
+          
          <div *ngIf="bike.status == 'REVIEW_PENDING'">
              <label for="">REVIEW_PENDING</label>
          </div>

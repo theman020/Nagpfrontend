@@ -8,7 +8,7 @@
       <th>Start Date</th>
       <th>Year</th>
     </tr>
-    <tr *ngFor="let bike of batch | paginate: { itemsPerPage: 10, currentPage: p }">
+    <tr *ngFor="let bike of batch | paginate: { itemsPerPage: 5, currentPage: p }">
       <td>
         {{bike.technology}}
       </td>

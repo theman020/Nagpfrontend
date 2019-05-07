@@ -74,7 +74,7 @@ export class ApplicantActivitiesComponent implements OnInit {
           "pointsEarned": 0,
           "startDate": this.myDate,
           "doneDate": "",
-          "count":1,
+          "count":0,
           "completionDate": "",
           "applicantDetails": {
             "applicantId": this.applicantId
