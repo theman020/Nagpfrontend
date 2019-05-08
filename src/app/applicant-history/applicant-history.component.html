@@ -1,7 +1,12 @@
 <app-applicant-home></app-applicant-home>
+<div style="margin-left: 12%; background-color: black;">
+    <h1 style="padding-top: 40px;padding-left: -20px; color: rgb(1, 1, 175);  text-align: center">History</h1>
+    <br>
+    </div>
+    <br>
+    <br>
 <div class="container" style="margin-left: 13%">
-  <h1>History</h1>
-  <table class="table table-bordered table-inverse" style="width: 65%">
+  <table class="table table-bordered table-inverse" style="width: 65% ; align-items: center; margin-left: 15%">
     <tr>
       <th>Activity Name</th>
       <th>Description</th>
@@ -10,7 +15,7 @@
       <th>status</th>
 
     </tr>
-    <tr *ngFor="let bike of AAR">
+    <tr *ngFor="let bike of AAR | paginate: { itemsPerPage: 5, currentPage: p }" >
       <td>
         {{bike.activity.name}}
       </td>
@@ -51,7 +56,7 @@
               {{m}}
             </option>
           </select>
-         <button (click)= "updateStatus($event.target.id)" id="{{bike.recordId}}">Update Status</button>
+         <button class="btn btn-primary" (click)= "updateStatus($event.target.id)" id="{{bike.recordId}}">Update</button>
         </form>
         </div>
         <div *ngIf="bike.status == 'COMPLETED'">
@@ -61,4 +66,5 @@
       </td>
     </tr>
   </table>
+  <pagination-controls (pageChange)="p = $event"></pagination-controls>
 </div>

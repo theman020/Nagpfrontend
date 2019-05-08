@@ -1,7 +1,13 @@
 <app-applicant-home></app-applicant-home>
-<div class="container" style="margin-left: 13%">
-  <h1>My Activities</h1>
-  <table class="table table-bordered table-inverse" style="width: 60%">
+<div style="margin-left: 12%; background-color: black;">
+    <h1 style="padding-top: 40px;padding-left: -20px; color: rgb(1, 1, 175);  text-align: center">My Activities</h1>
+    <br>
+    </div>
+    <br>
+    <br>
+<div class="container" style="margin-left: 13%;">
+  <!-- <h1 style="padding-top: 40px;padding-left: -20px; color: rgb(1, 1, 175); background-color: black; text-align: center">My Activities</h1> -->
+  <table class="table table-bordered table-inverse" style="width: 60%; align-items: center; margin-left: 15%">
     <tr>
       <th>Activity Name</th>
       <th>Description</th>
@@ -10,7 +16,7 @@
       <th>Enroll</th>
 
     </tr>
-    <tr *ngFor="let bike of activity">
+    <tr *ngFor="let bike of activity | paginate: { itemsPerPage: 5, currentPage: p }">
       <td>
         {{bike.name}}
       </td>
@@ -24,9 +30,10 @@
         {{bike.qualifyPoints}}
       </td>
       <td>
-        <button (click) = "checkActivityAvailability($event.target.id)" id="{{bike.activityId}}">Add Activity</button>
+        <button class="btn btn-primary" (click) = "checkActivityAvailability($event.target.id)" id="{{bike.activityId}}">Add Activity</button>
       </td>
 
     </tr>
   </table>
+  <pagination-controls (pageChange)="p = $event"></pagination-controls>
 </div>

@@ -11,6 +11,8 @@ export class AphomeComponent implements OnInit {
   
   public editapplicant;
   applicantId:number;
+  sum:number=0;
+  public AAR:any
   check: boolean = false
   constructor(private service: NagpServiceService,private router:Router) { }
 
@@ -25,11 +27,28 @@ export class AphomeComponent implements OnInit {
     this.service.getApplicantDetailsById(this.applicantId).subscribe(
       data=>{ this.editapplicant=data
         this.check = true},
+        
       err => console.log(err),
       ()=>console.log("Applicant loaded")
       //()=>console.log("Admin loaded")
-
+     
+       
+      
     );
-  }
+    this.service.getActivityRecordByApplicantId(this.applicantId).subscribe
+    ((data:[])=>{
+      this.AAR=data;
+      if(this.AAR[0]==undefined)
+      {
+        console.log('if')
+      }
+      console.log('AAr = '+this.AAR[0])
 
+      for(var i=0;i<data.length;i++){
+        
+        this.sum = this.sum + this.AAR[i].pointsEarned
+        } 
+
+      });
+}
 }

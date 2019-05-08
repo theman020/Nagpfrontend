@@ -1,8 +1,13 @@
 <app-applicant-home></app-applicant-home>
+<div style="margin-left: 12%; background-color: black;">
+    <h1 style="padding-top: 40px;padding-left: -20px; color: rgb(1, 1, 175);  text-align: center">Edit Profile</h1>
+    <br>
+    </div>
+    <br>
+    <br>
 <div *ngIf="check==true" style="margin-left: 13%">
-  <h1>Edit Profile</h1>
   <div class="container">
-    <form [formGroup]="applicantEditform" style="width: 60%" novalidate>
+    <form [formGroup]="applicantEditform" style="width: 60% ;align-items: center; margin-left: 15%" novalidate>
         <div *ngIf="validateMessage != ''">
             <h3 class="has-info">{{validateMessage}}</h3>
           </div>
@@ -28,7 +33,7 @@
         <input type="password" class="form-control" value="{{editapplicant.password}}" formControlName="password" />
       </div>
       <div>
-        <button (click)="updateApplicantDetails()">Update</button>
+        <button class="btn btn-primary" (click)="updateApplicantDetails()">Update</button>
       </div>
     </form>
   </div>
